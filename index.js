@@ -7,11 +7,10 @@ function isString(f) {
   return Object.prototype.toString.call(f) === '[object String]';
 }
 
-class Store {
-  static instance = null;
-  constructor(moduleName, prefix) {
 
-    if (Store.instance === null) {
+class Store {
+  constructor(moduleName, prefix) {
+    if (Store.instance === undefined) {
       if (!(this instanceof Store)) return new Store(moduleName);
       if (isString(moduleName)) defaultModuleName = moduleName.trim();
       if (isString(prefix)) defaultModulePrefix = prefix.trim();
