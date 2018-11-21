@@ -9,7 +9,7 @@ function isString(f) {
 
 
 class Store {
-  constructor(moduleName, prefix) {
+  constructor(moduleName, prefix, callback) {
     if (Store.instance === undefined) {
       if (!(this instanceof Store)) return new Store(moduleName);
       if (isString(moduleName)) defaultModuleName = moduleName.trim();
@@ -35,6 +35,7 @@ class Store {
           } else {
             target[defaultModuleName][key] = value;
           }
+          if (callback) callback()
           return true;
         }
       })
