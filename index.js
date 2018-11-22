@@ -11,7 +11,7 @@ function isString(f) {
 class Store {
   constructor(moduleName, prefix, callback) {
     if (Store.instance === undefined) {
-      if (!(this instanceof Store)) return new Store(moduleName);
+      if (!(this instanceof Store)) return new Store(moduleName, prefix, callback);
       if (isString(moduleName)) defaultModuleName = moduleName.trim();
       if (isString(prefix)) defaultModulePrefix = prefix.trim();
       modules.push(defaultModuleName);
